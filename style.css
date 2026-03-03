@@ -1,0 +1,132 @@
+:root {
+  --primary: #6c5ce7;
+  --bg-dark: #121212;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-dim: #a0a0a0;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #121212 0%, #1e1e2e 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centraliza no PC */
+  padding: 20px;
+}
+
+/* Container Principal */
+.content {
+  width: 100%;
+  max-width: 420px; /* Largura ideal para Mobile-First no PC */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Ajustes de Header */
+header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+header img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  object-fit: cover;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+header h1 { font-size: 1.5rem; letter-spacing: -0.5px; }
+header p { color: var(--text-dim); font-size: 0.95rem; margin-top: 4px; }
+
+/* Redes Sociais Horizontais */
+.content_main ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.content_main ul li a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.content_main ul li a:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Links em Bloco (Estilo Botão) */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+main a {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  transition: var(--transition);
+}
+
+/* Mobile: Toque sem efeito de hover persistente / PC: Hover clássico */
+@media (hover: hover) {
+  main a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    transform: scale(1.02);
+  }
+}
+
+main a i:first-child { color: var(--primary); width: 20px; font-size: 1.2rem; }
+main a p { flex: 1; text-align: left; margin-left: 15px; font-weight: 500; }
+main a i:last-child { opacity: 0.4; font-size: 0.8rem; }
+
+/* Footer / Card de Newsletter */
+footer {
+  background: var(--primary);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+footer:active { transform: scale(0.98); } /* Feedback de clique no celular */
+
+footer h2 { font-size: 0.9rem; line-height: 1.2; }
+footer p { font-size: 0.75rem; opacity: 0.85; margin-top: 2px; }
+
+/* --- Ajustes para Celulares Pequenos --- */
+@media (max-width: 375px) {
+  body { padding: 15px; align-items: flex-start; } /* Scroll mais natural */
+  .content { gap: 16px; }
+  header img { width: 80px; height: 80px; }
+  main a { padding: 14px 16px; }
+}
